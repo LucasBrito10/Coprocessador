@@ -1,0 +1,43 @@
+|controler
+pixel_valid <= pixel_valid.DB_MAX_OUTPUT_PORT_TYPE
+out <= <GND>
+x[0] <= x[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+x[1] <= x[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+x[2] <= x[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+x[3] <= x[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+y[0] <= y[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= y[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= y[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= y[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => y[0]~reg0.CLK
+clk => y[1]~reg0.CLK
+clk => y[2]~reg0.CLK
+clk => y[3]~reg0.CLK
+clk => x[0]~reg0.CLK
+clk => x[1]~reg0.CLK
+clk => x[2]~reg0.CLK
+clk => x[3]~reg0.CLK
+clk => state~1.DATAIN
+reset => y[0]~reg0.ACLR
+reset => y[1]~reg0.ACLR
+reset => y[2]~reg0.ACLR
+reset => y[3]~reg0.ACLR
+reset => x[0]~reg0.ACLR
+reset => x[1]~reg0.ACLR
+reset => x[2]~reg0.ACLR
+reset => x[3]~reg0.ACLR
+reset => state~3.DATAIN
+start_button => always0.IN0
+start_button => next_state.OUTPUTSELECT
+start_button => next_state.OUTPUTSELECT
+start_button => next_state.OUTPUTSELECT
+start_button => next_state.OUTPUTSELECT
+start_button => next_state.STOPPED.OUTPUTSELECT
+start_button => next_state.READING.OUTPUTSELECT
+start_button => next_state.NEXT_PIXEL.OUTPUTSELECT
+start_button => next_state.FINISHED.OUTPUTSELECT
+start_button => pixel_valid.OUTPUTSELECT
+data_pixel => Selector2.IN3
+data_pixel => Selector0.IN3
+
+

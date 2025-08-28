@@ -1,0 +1,13 @@
+module controler
+(parameter img_height = 4,
+parameter img_width = 4
+)
+
+(
+
+output reg x[3:0],
+output reg y[3:0],
+input wire
+
+
+);

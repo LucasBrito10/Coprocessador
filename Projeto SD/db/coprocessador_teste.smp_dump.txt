@@ -1,0 +1,7 @@
+
+State Machine - |controler|state
+Name state.FINISHED state.NEXT_PIXEL state.READING state.STOPPED 
+state.STOPPED 0 0 0 0 
+state.READING 0 0 1 1 
+state.NEXT_PIXEL 0 1 0 1 
+state.FINISHED 1 0 0 1 
