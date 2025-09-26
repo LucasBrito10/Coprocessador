@@ -1,0 +1,147 @@
+module vga_controller
+
+(
+	input wire clk,
+	input wire reset,
+	output reg hsync,
+	output reg vsync,
+	output reg [9:0] x,
+	output reg [9:0] y,
+	output reg coordinate_on
+	
+
+
+
+
+);
+
+
+// -> PARÂMETROS/CONSTANTES (HORIZONTAIS E VERTICAIS) QUE O VGA NECESSITA PARA REALIZAR O SINCRONISMO E VARRER A MATRIZ 
+
+
+localparam H_PIXELS = 640;
+localparam H_FRONT = 16;
+localparam H_SYNC = 96;
+localparam H_BACK = 48;
+localparam H_TOTAL = H_PIXELS + H_FRONT + H_SYNC + H_BACK;
+
+localparam V_PIXELS = 480;
+localparam V_FRONT = 10;
+localparam V_SYNC = 2;
+localparam V_BACK = 33;
+localparam V_TOTAL = V_PIXELS + V_FRONT + V_SYNC + V_BACK;
+
+
+
+
+// -> LÓGICA PARA OS CONTADORES (COORDENADAS DA MATRIZ)
+
+
+reg [9:0] x_coordinate, y_coordinate;
+
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        x_coordinate <= 0;
+        y_coordinate <= 0;
+    end
+    else begin
+        if (x_coordinate < H_TOTAL - 1) begin
+            x_coordinate <= x_coordinate + 1;
+        end
+        else begin
+            x_coordinate <= 0;
+            if (y_coordinate < V_TOTAL - 1) begin
+                y_coordinate <= y_coordinate + 1;
+            end
+            else begin
+                y_coordinate <= 0;
+            end
+        end
+    end
+end
+
+
+
+
+// -> LÓGICA PARA OS PULSOS DE SINCRONISMO (ATIVOS EM NÍVEL LÓGICO BAIXO)
+
+
+
+
+always@(*) begin
+
+	if((x_coordinate >= H_PIXELS + H_FRONT) &&  (x_coordinate < H_PIXELS + H_FRONT + H_SYNC)) begin
+		
+		hsync = 0;
+		
+	end
+		
+	else begin
+		
+		hsync = 1;
+		
+	end
+	
+	
+	if((y_coordinate >= V_PIXELS + V_FRONT) &&  (y_coordinate < V_PIXELS + V_FRONT + V_SYNC)) begin
+	
+		vsync = 0;
+	
+	
+	end
+	
+	else begin
+	
+		vsync = 1;
+	
+	end
+
+
+end
+
+
+
+
+// LÓGICA DA MATRIZ VISÍVEL
+
+
+
+always@(*) begin
+
+	 if(x_coordinate <= H_PIXELS - 1) begin
+	 
+		x = x_coordinate;
+	 
+	 end
+	 
+	 else begin
+		
+		x = 0;
+	 
+	 end
+	 
+	 if(y_coordinate <= V_PIXELS - 1) begin
+	 
+		y = y_coordinate; 
+	 
+	 end
+	 
+	 else begin
+		
+		y = 0;
+	 
+	 end
+
+
+
+end
+
+
+
+assign flow_enabled = (h_count < H_VISIBLE) && (v_count < V_VISIBLE);
+
+
+
+
+endmodule

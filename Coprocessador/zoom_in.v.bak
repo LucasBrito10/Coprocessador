@@ -1,0 +1,16 @@
+module zoom_in #(
+    parameter WIDTH_IN   = 160,   
+    parameter HEIGHT_IN  = 120,   
+    parameter SCALE      = 2    
+)(
+    input  wire [$clog2(WIDTH_IN*SCALE)-1:0]  x_vga,  // COORDENADA X DO VGA
+    input  wire [$clog2(HEIGHT_IN*SCALE)-1:0] y_vga,  // COORDENADA Y DO VGA
+    output wire [$clog2(WIDTH_IN)-1:0]        x_img,   // COORDENADA X DA IMAGEM ORIGINAL
+    output wire [$clog2(HEIGHT_IN)-1:0]       y_img    // COORDENADA Y DA IMAGEM ORIGINAL
+);
+
+    // REDIMENSIONAMENTO
+    assign x_img = x_vga / SCALE;
+    assign y_img = y_vga / SCALE;
+
+endmodule

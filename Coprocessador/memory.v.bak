@@ -1,0 +1,48 @@
+module save_image #(
+    parameter IMG_WIDTH  = 160,
+    parameter IMG_HEIGHT = 120,
+    parameter ZOOM_FACTOR = 2  
+)(
+    input  wire       clk,
+    input  wire       reset,
+    input  wire       flow_enabled,
+    input  wire [9:0] x_img,      
+    input  wire [9:0] y_img,     
+    output reg        pixel_out_valid,
+    output reg [7:0]  pixel_out
+);
+
+    // ROM da imagem
+    reg [7:0] image_data [0:IMG_WIDTH*IMG_HEIGHT-1];
+    initial begin
+        $readmemh("image.txt", image_data);
+    end
+
+
+    // Endereço na ROM
+    wire [16:0] addr;
+    assign addr = y_orig * IMG_WIDTH + x_orig;
+
+    // PERCORRENDO A MATRIZ QUE REPRESENTA A ROM
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            pixel_out       <= 8'h00;
+            pixel_out_valid <= 1'b0;
+        end
+        else if (flow_enabled) begin
+            if (x_orig < IMG_WIDTH && y_orig < IMG_HEIGHT) begin
+                pixel_out       <= image_data[addr];
+                pixel_out_valid <= 1'b1;
+            end
+            else begin
+                pixel_out       <= 8'h00;
+                pixel_out_valid <= 1'b0;
+            end
+        end
+        else begin
+            pixel_out       <= 8'h00;
+            pixel_out_valid <= 1'b0;
+        end
+    end
+
+endmodule

@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at high_level.v(54): always construct contains both blocking and non-blocking assignments File: /home/aluno/Downloads/Coprocessador(2) (2)/Coprocessador/Coprocessador/high_level.v Line: 54
