@@ -25,7 +25,7 @@ module high_level (
     wire                   valid_from_zoom_in;
     wire [7:0]             pixel_from_zoom_out;
     wire                   pixel_valid_from_zoom_out;
-    --
+    
     wire [$clog2(160)-1:0] x_img_to_mem;
     wire [$clog2(120)-1:0] y_img_to_mem;
     wire [7:0]             pixel_from_mem;
@@ -66,12 +66,16 @@ module high_level (
     end
     wire [9:0] h_offset = (VGA_WIDTH - display_width) / 2;
     wire [9:0] v_offset = (VGA_HEIGHT - display_height) / 2;
+    
     wire image_on_screen = (x_vga >= h_offset) && (x_vga < h_offset + display_width) &&
                            (y_vga >= v_offset) && (y_vga < v_offset + display_height);
+    
     wire [9:0] x_vga_adjusted = x_vga - h_offset;
     wire [9:0] y_vga_adjusted = y_vga - v_offset;
+    
     localparam RECORTE_H_OFFSET_8X = ((IMG_WIDTH << 3) - VGA_WIDTH) / 2;
     localparam RECORTE_V_OFFSET_8X = ((IMG_HEIGHT << 3) - VGA_HEIGHT) / 2;
+    
     wire [9:0] x_vga_for_zoom_in = is_8x_zoom_in ? (x_vga + RECORTE_H_OFFSET_8X) : x_vga_adjusted;
     wire [9:0] y_vga_for_zoom_in = is_8x_zoom_in ? (y_vga + RECORTE_V_OFFSET_8X) : y_vga_adjusted;
 
@@ -156,5 +160,6 @@ module high_level (
 
     assign VGA_CLK     = clk_vga; // O clock do VGA é o de 25MHz
     assign VGA_BLANK_N = flow_enabled;
+
 
 endmodule
