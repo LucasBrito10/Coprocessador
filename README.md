@@ -60,7 +60,7 @@ A seguir estão os requisitos funcionais e não funcionais a serem desenvolvidos
 3.  **Compilação:**
     * Com o Quartus aberto, clique no botão de Start Compilation.
 
-        ![botao_compilar](start_compilation.png)
+        ![botao_compilar](imgs/start_compilation.png)
     
     para gerar o arquivo de programação (`.sof`).
     * Ainda no Quartus, vá em Programmer 
@@ -68,7 +68,7 @@ A seguir estão os requisitos funcionais e não funcionais a serem desenvolvidos
     * Conecte a placa DE1-SoC ao computador.
     * Abra o "Programmer" no Quartus Prime. 
 
-        ![programmer](programmer.png)
+        ![programmer](imgs/programmer.png)
     * Selecione o arquivo `.sof` gerado e programe a placa.
     * Clique em "Start" e as instruções serão repassadas a placa.
 
@@ -169,15 +169,15 @@ Foram realizados testes de mesa diretamente na FPGA comparando o comportamento d
 
 | Original | Vizinho Mais Próximo (2X) | Replicação de Pixel (2X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg) | ![Vizinho mais proximo 2x](vizinho_proximo_2x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 2x](imgs/vizinho_proximo_2x.jpg) | *(img)* |
 
 | Original | Vizinho Mais Próximo (4X) | Replicação de Pixel (4X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg)| ![Vizinho mais proximo 4x](vizinho_proximo_4x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg)| ![Vizinho mais proximo 4x](imgs/vizinho_proximo_4x.jpg) | *(img)* |
 
 | Original | Vizinho Mais Próximo (8X) | Replicação de Pixel (8X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg) | ![Vizinho mais proximo 8x](vizinho_proximo_8x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 8x](imgs/vizinho_proximo_8x.jpg) | *(img)* |
 
 ### 7.2. Teste de Zoom Out
 
@@ -187,15 +187,15 @@ Foram realizados testes de mesa diretamente na FPGA comparando o comportamento d
 
 | Original | Decimação (2X) | Média de Blocos (2X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg) | ![decimação 2x](decimacao_2x.jpg)| ![media 2x](media_2x.jpg) |
+| ![original.jpg](imgs/original.jpg) | ![decimação 2x](imgs/decimacao_2x.jpg)| ![media 2x](imgs/media_2x.jpg) |
 
 | Original | Decimação (4X) | Média de Blocos (4X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg) | ![decimação 4x](decimacao_4x.jpg)|  ![media x](media_4x.jpg) |
+| ![original.jpg](imgs/original.jpg) | ![decimação 4x](imgs/decimacao_4x.jpg)|  ![media x](imgs/media_4x.jpg) |
 
 | Original | Decimação (8X) | Média de Blocos (8X) |
 | :--- | :--- | :--- |
-| ![original.jpg](original.jpg) | ![decimação 8x](decimacao_8x.jpg) | ![media 8x](media_8x.jpg) |
+| ![original.jpg](imgs/original.jpg) | ![decimação 8x](imgs/decimacao_8x.jpg) | ![media 8x](imgs/media_8x.jpg) |
 
 ## 8. Análise dos Resultados
 
@@ -204,4 +204,5 @@ Zoom Out: O algoritmo de Decimação realiza de forma totalmente funcional a red
 
 * **Consumo de Recursos:** Apresente os dados de consumo de Logic Elements (LEs), registradores e memória da FPGA.
 * **Limitações:** Zoom Out não totalmente funcional no algoritmo Média de Blocos
+
 * **Itens Não Atendidos:** Média de Blocos 2x, 4x e 8x. Ao acionar a chave seletora do Algoritmo de Média de blocos, a imagem se mantem nitida, porêm, ao selecionar o Zoom Out de 2x, a imagem se apresenta "pixelada" e perde um pouco da sua qualidade. Ao acionar o Zoom Out de 4x, a imagem perde totalmente sua qualidade ficando não identificavel a imagem original. Ao acionar o Zoom Out 8x apenas é mostrada um uma figura geométrica retangular escura na tela, após uma analise detalhada, foi constatado que o motivo do erro se dá...
