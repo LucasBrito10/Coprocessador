@@ -37,7 +37,7 @@ A seguir estão os requisitos funcionais e não funcionais a serem desenvolvidos
 
 | Software | Versão | Descrição |
 | :--- | :--- | :--- |
-| Quartus Prime | X.X.X | Ferramenta de desenvolvimento para FPGAs Intel. |
+| Quartus Prime | 13.1.0 | Ferramenta de desenvolvimento para FPGAs Intel. |
 
 ### 3.2. Hardware Utilizado
 
@@ -74,6 +74,8 @@ A seguir estão os requisitos funcionais e não funcionais a serem desenvolvidos
 
 ## 5. Manual do Usuário
 Após realizar as etapas de instalação e configuração a FPGA estará pronta para ser utilizada da seguinte forma (Segue imagem retirada do manual da placa para servir com referência):
+
+![programmer](imgs/De1-SoC.png)
 
 | Chave | Nível Lógico | Ação                                                                                                                   |
 | :---- | :------------- | :--------------------------------------------------------------------------------------------------------------------- |
@@ -202,8 +204,8 @@ Foram realizados testes de mesa diretamente na FPGA comparando o comportamento d
 * **Comparativo Visual:** Zoom In: Ambos algoritmos não apresentaram diferenças visiveis tanto na imagem original quanto na imagem original amplificada.
 Zoom Out: O algoritmo de Decimação realiza de forma totalmente funcional a redução da imagem em todas opções de Zoom Out, porem, como demonstrado na tabela de imagens anteriores, a média de bloco não está totalmente funcional, dificultando assim uma comparação justa entre ambos os algoritmos.
 
-* **Consumo de Recursos:** Apresente os dados de consumo de Logic Elements (LEs), registradores e memória da FPGA.
 * **Limitações:** Zoom Out não totalmente funcional no algoritmo Média de Blocos
 
 * **Itens Não Atendidos:** Média de Blocos 2x, 4x e 8x. Ao acionar a chave seletora do Algoritmo de Média de blocos, a imagem se mantem nitida, porêm, ao selecionar o Zoom Out de 2x, a imagem se apresenta "pixelada" e perde um pouco da sua qualidade. Ao acionar o Zoom Out de 4x, a imagem perde totalmente sua qualidade ficando não identificavel a imagem original. Ao acionar o Zoom Out 8x apenas é mostrada um uma figura geométrica retangular escura na tela, após uma analise detalhada, foi constatado que o motivo do erro se dá...
+
 
