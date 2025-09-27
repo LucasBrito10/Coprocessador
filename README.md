@@ -75,7 +75,7 @@ A seguir estão os requisitos funcionais e não funcionais a serem desenvolvidos
 ## 5. Manual do Usuário
 Após realizar as etapas de instalação e configuração a FPGA estará pronta para ser utilizada da seguinte forma (Segue imagem retirada do manual da placa para servir com referência):
 
-![programmer](imgs/De1-SoC.png)
+![programmer](imgs/DE1-SoC.png)
 
 | Chave | Nível Lógico | Ação                                                                                                                   |
 | :---- | :------------- | :--------------------------------------------------------------------------------------------------------------------- |
@@ -207,5 +207,6 @@ Zoom Out: O algoritmo de Decimação realiza de forma totalmente funcional a red
 * **Limitações:** Zoom Out não totalmente funcional no algoritmo Média de Blocos
 
 * **Itens Não Atendidos:** Média de Blocos 2x, 4x e 8x. Ao acionar a chave seletora do Algoritmo de Média de blocos, a imagem se mantem nitida, porêm, ao selecionar o Zoom Out de 2x, a imagem se apresenta "pixelada" e perde um pouco da sua qualidade. Ao acionar o Zoom Out de 4x, a imagem perde totalmente sua qualidade ficando não identificavel a imagem original. Ao acionar o Zoom Out 8x apenas é mostrada um uma figura geométrica retangular escura na tela, após uma analise detalhada, foi constatado que o motivo do erro se dá...
+
 
 
