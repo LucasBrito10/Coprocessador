@@ -171,15 +171,15 @@ Foram realizados testes de mesa diretamente na FPGA comparando o comportamento d
 
 | Original | Vizinho Mais Próximo (2X) | Replicação de Pixel (2X) |
 | :--- | :--- | :--- |
-| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 2x](imgs/vizinho_proximo_2x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 2x](imgs/vizinho_proximo_2x.jpg) | ![Replicação de Pixel 2x](imgs/replicacao_2x.jpg) |
 
 | Original | Vizinho Mais Próximo (4X) | Replicação de Pixel (4X) |
 | :--- | :--- | :--- |
-| ![original.jpg](imgs/original.jpg)| ![Vizinho mais proximo 4x](imgs/vizinho_proximo_4x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg)| ![Vizinho mais proximo 4x](imgs/vizinho_proximo_4x.jpg) | ![Replicação de Pixel 4x](imgs/replicacao_4x.jpg) |
 
 | Original | Vizinho Mais Próximo (8X) | Replicação de Pixel (8X) |
 | :--- | :--- | :--- |
-| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 8x](imgs/vizinho_proximo_8x.jpg) | *(img)* |
+| ![original.jpg](imgs/original.jpg) | ![Vizinho mais proximo 8x](imgs/vizinho_proximo_8x.jpg) | ![Replicação de Pixel 8x](imgs/replicacao_8x.jpg) |
 
 ### 7.2. Teste de Zoom Out
 
@@ -207,6 +207,7 @@ Zoom Out: O algoritmo de Decimação realiza de forma totalmente funcional a red
 * **Limitações:** Zoom Out não totalmente funcional no algoritmo Média de Blocos
 
 * **Itens Não Atendidos:** Média de Blocos 2x, 4x e 8x. Ao acionar a chave seletora do Algoritmo de Média de blocos, a imagem se mantem nitida, porêm, ao selecionar o Zoom Out de 2x, a imagem se apresenta "pixelada" e perde um pouco da sua qualidade. Ao acionar o Zoom Out de 4x, a imagem perde totalmente sua qualidade ficando não identificavel a imagem original. Ao acionar o Zoom Out 8x apenas é mostrada um uma figura geométrica retangular escura na tela, após uma analise detalhada, foi constatado que o motivo do erro se dá...
+
 
 
 
